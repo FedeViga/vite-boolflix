@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
 
-import {store} from './assets/js/store'
+import {store} from './js/store'
 
 export default {
 
@@ -27,11 +27,11 @@ export default {
 
 
 <template>
-  CIA
+  
 </template>
 
 <style lang="scss">
 
 @use './styles/general' as *;
 
-</style>
+</style>./js/store
