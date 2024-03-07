@@ -14,26 +14,42 @@ export default {
   },
 
   methods: {
-      getSeriesFlag() {
-            let flag = this.serie.original_language;
-            if (flag == 'en' || flag == 'uk') {
-                flag = 'gb';
-            }
-    
-            if (flag == 'zh') {
-                flag = 'cn'
-            }
-
-            if (flag == 'ja') {
-                flag = 'jp'
-            }
-
-            if (flag == 'ko') {
-                flag = 'kr'
-            }
-            
-            return flag
+    getSeriesFlag() {
+        let flag = this.serie.original_language;
+        if (flag == 'en' || flag == 'uk') {
+            flag = 'gb';
         }
+
+        if (flag == 'zh') {
+            flag = 'cn'
+        }
+
+        if (flag == 'ja') {
+            flag = 'jp'
+        }
+
+        if (flag == 'ko') {
+            flag = 'kr'
+        }
+
+        return flag
+    },
+
+    roundVote() {
+
+        let roundedVote = this.serie.vote_average / 2;
+
+        if(roundedVote % 1 <= 0.4) {
+
+            roundedVote = Math.floor(roundedVote)
+
+        } else {
+
+            roundedVote = Math.ceil(roundedVote)
+        }
+
+        return roundedVote
+    }
   }
 }
 </script>
@@ -42,6 +58,8 @@ export default {
 <template>
 
     <div class="card">
+
+        <img :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path">
 
         <h2>
             {{ serie.name }}
@@ -59,7 +77,9 @@ export default {
                                         :alt="getSeriesFlag()">
             </h3>
             <h3>
-                Media voto : {{ serie.vote_average }}
+                Media voto : 
+                <i v-for="n in roundVote()" :key="n" class="fa-solid fa-star"></i>
+                <i v-for="n in 5 - roundVote()" :key="n" class="fa-regular fa-star"></i>
             </h3>
 
         </div>

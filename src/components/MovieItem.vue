@@ -31,8 +31,24 @@ export default {
         if (flag == 'ko') {
             flag = 'kr'
         }
-        
+
         return flag
+    },
+
+    roundVote() {
+
+        let roundedVote = this.movie.vote_average / 2;
+
+        if(roundedVote % 1 <= 0.4) {
+
+            roundedVote = Math.floor(roundedVote)
+
+        } else {
+
+            roundedVote = Math.ceil(roundedVote)
+        }
+
+        return roundedVote
     }
   }
 }
@@ -42,6 +58,8 @@ export default {
 <template>
 
     <div class="card">
+
+        <img :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path">
 
         <h2>
             {{ movie.title }}
@@ -59,7 +77,9 @@ export default {
                                         :alt="getMoviesFlag()">
             </h3>
             <h3>
-                Media voto : {{ movie.vote_average }}
+                Media voto : 
+                <i v-for="n in roundVote()" :key="n" class="fa-solid fa-star"></i>
+                <i v-for="n in 5 - roundVote()" :key="n" class="fa-regular fa-star"></i>
             </h3>
 
         </div>
