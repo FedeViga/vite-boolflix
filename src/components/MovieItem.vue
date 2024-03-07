@@ -11,6 +11,29 @@ export default {
   data() {
     return {
     }
+  }, 
+
+  methods: {
+    getMoviesFlag() {
+        let flag = this.movie.original_language;
+        if (flag == 'en' || flag == 'uk') {
+            flag = 'gb';
+        }
+
+        if (flag == 'zh') {
+            flag = 'cn'
+        }
+        
+        if (flag == 'ja') {
+            flag = 'jp'
+        }
+
+        if (flag == 'ko') {
+            flag = 'kr'
+        }
+        
+        return flag
+    }
   }
 }
 </script>
@@ -18,7 +41,7 @@ export default {
 
 <template>
 
-    <div class="movie">
+    <div class="card">
 
         <h2>
             {{ movie.title }}
@@ -29,7 +52,11 @@ export default {
                 Titolo originale : {{ movie.original_title }}
             </h3>
             <h3>
-                Lingua originale : {{ movie.original_language }}
+                Lingua originale : <img
+                                        :src="'https://flagcdn.com/16x12/' + getMoviesFlag() + '.png'"
+                                        width="16"
+                                        height="12"
+                                        :alt="getMoviesFlag()">
             </h3>
             <h3>
                 Media voto : {{ movie.vote_average }}

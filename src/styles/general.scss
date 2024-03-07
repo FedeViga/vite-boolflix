@@ -28,3 +28,16 @@
   padding: 0px 20px;
 }
 // fine container
+
+// section
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0px;
+}
+
+.info {
+  margin-left: 20px;
+}
+// fine section
