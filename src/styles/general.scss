@@ -13,31 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-// reset
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-// fine reset
-
-// container
-.container {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 0px 20px;
-}
-// fine container
-
 // section
-.cards-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px 0px;
-}
-
-.info {
-  margin-left: 20px;
+section {
+  h2 {
+    color: #DB202C;
+    font-size: 3em;
+  }
 }
 // fine section

@@ -57,40 +57,49 @@ export default {
 
 <template>
 
-    <div class="card">
+    <div class=" px-5 px-sm-1 position-relative">
 
-        <img :src="'https://image.tmdb.org/t/p/w342' + card.poster_path">
+        <img class="w-100 h-100" :src="'https://image.tmdb.org/t/p/w342' + card.poster_path">
 
-        <h2 v-if="card.title">
-            {{ card.title }}
-        </h2>
+        
+        <div class="position-absolute top-0 start-0 w-100 h-100 overflow-hidden px-5 px-sm-1">
 
-        <h2 v-else>
-            {{card.name}}
-        </h2>
+            <div class="info h-100 p-2">
 
-        <div class="info">
+                <h3 class="title text-center py-2" v-if="card.title">
+                    {{ card.title }}
+                </h3>
+                
+                <h3 class="title text-center py-2" v-else>
+                    {{card.name}}
+                </h3>
 
-            <h3 v-if="card.original_title">
-                Titolo originale : {{ card.original_title }}
-            </h3>
+                <h3 class="description" v-if="card.original_title">
+                    Titolo originale : {{ card.original_title }}
+                </h3>
+    
+                <h3 class="description" v-else>
+                    Titolo originale : {{ card.original_name }}
+                </h3>
+    
+                <h3 class="description">
+                    Lingua originale : <img
+                                            :src="'https://flagcdn.com/16x12/' + getFlag() + '.png'"
+                                            width="20"
+                                            height="15"
+                                            :alt="getFlag()">
+                </h3>
+                <h3 class="description">
+                    Media voto : 
+                    <i v-for="n in roundVote()" :key="n" class="fa-solid fa-star"></i>
+                    <i v-for="n in 5 - roundVote()" :key="n" class="fa-regular fa-star"></i>
+                </h3>
 
-            <h3 v-else>
-                Titolo originale : {{ card.original_name }}
-            </h3>
+                <p>
+                    <strong>Overview:</strong> {{ card.overview }}
+                </p>
+            </div>
 
-            <h3>
-                Lingua originale : <img
-                                        :src="'https://flagcdn.com/16x12/' + getFlag() + '.png'"
-                                        width="16"
-                                        height="12"
-                                        :alt="getFlag()">
-            </h3>
-            <h3>
-                Media voto : 
-                <i v-for="n in roundVote()" :key="n" class="fa-solid fa-star"></i>
-                <i v-for="n in 5 - roundVote()" :key="n" class="fa-regular fa-star"></i>
-            </h3>
 
         </div>
 
@@ -99,5 +108,35 @@ export default {
 </template>
 
 <style lang="scss">
+
+    .info {
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.801);
+        transition: .3s ease;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        .title {
+            font-size: 2.2em;
+        }
+
+        .description {
+            font-size: 1.4em;
+        }
+    }
+
+    @media screen and (min-width:576px) {
+        .info {
+            .title {
+                font-size: 1.5em;
+            }
+            .description {
+            font-size: 1em;
+        }
+        }
+    }
+
 
 </style>

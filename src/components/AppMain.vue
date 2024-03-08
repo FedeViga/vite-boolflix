@@ -13,7 +13,7 @@ export default {
 
 <template>
 
-    <main>
+    <main class="text-white">
         <AppCards></AppCards>
     </main>
 
@@ -24,5 +24,12 @@ export default {
     main {
         height: calc(100vh - 72px);
         overflow: auto;
+    }
+
+    @media screen and (max-width: 576px){
+        main{
+            height: calc(100vh - 134px);
+        }
+        
     }
 </style>

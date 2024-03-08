@@ -16,15 +16,18 @@ export default {
 
 <template>
 
-  <nav>
-    <div class="container">
+  <nav class="bg-black py-2 py-sm-0">
+    <div class="container d-flex flex-column flex-sm-row justify-content-center justify-content-sm-between align-items-center">
 
       <img src="https://fontmeme.com/permalink/240306/a1497229f7b7e248527b4619e155203f.png" alt="boolflix logo">
   
-      <div class="search">
-        <input type="search" placeholder="Search Movie or Serie" v-model="store.title">
-        <button @click="$emit('search')">Search</button>
+      <div class="d-flex gap-2">
+        <div class="input-group mb-2 mb-sm-0">
+          <input type="search" class="form-control" placeholder="Search Movie or Serie" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="store.title">
+          <button class="btn btn-danger" type="button" id="button-addon2" @click="$emit('search')">Search</button>
+        </div>
       </div>
+
     </div>
 
   </nav>
@@ -33,35 +36,4 @@ export default {
 
 <style lang="scss">
 
-  nav {
-    background-color: black;
-
-    .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0;
-
-      img {
-        margin-top: 5px;
-        height: 60px;
-      }
-
-      .search {
-        display: flex;
-        gap: 10px;
-        margin-right: 10px;
-      }
-  
-      input {
-        padding: 0px 10px;
-      }
-  
-      button {
-        padding: 5px 10px;
-      }
-    }
-
-
-  }
 </style>
