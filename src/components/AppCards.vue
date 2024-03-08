@@ -21,7 +21,11 @@ export default {
 
 
 <template>
-    <section class="mt-3" v-if="store.moviesList.length > 0">
+
+    <section 
+        class="mt-3" 
+        v-if="store.moviesList.length > 0"
+    >
         <div class="container">
 
             <h2 class="text-center">
@@ -39,7 +43,11 @@ export default {
         </div>
     </section>
 
-    <section v-if="store.seriesList.length > 0">
+    <section 
+        class="mt-3" 
+        v-if="store.seriesList.length > 0"
+    >
+
         <div class="container">
 
             <h2 class="text-center">

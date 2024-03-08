@@ -18,6 +18,7 @@ export default {
   },
 
   methods: {
+    // metodo per fare chiamata axios e salvare i risultati nell'array movieslist nello store
     searchmovie() {
       axios.get('https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&query=' + this.store.title).then(result => {
         this.store.moviesList = result.data.results;
@@ -25,6 +26,7 @@ export default {
       })
     },
 
+    // metodo per fare chiamata axios e salvare i risultati nell'array serieslist nello store
     searchserie() {
       axios.get('https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&query=' + this.store.title).then(result => {
         this.store.seriesList = result.data.results;
