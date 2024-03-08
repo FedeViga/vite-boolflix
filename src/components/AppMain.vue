@@ -1,11 +1,11 @@
 <script>
-import AppMovies from './AppMovies.vue'
+import AppCards from './AppCards.vue'
 export default {
 
     name: 'AppMain',
 
     components: {
-        AppMovies,
+        AppCards,
     }
 }
 </script>
@@ -14,7 +14,7 @@ export default {
 <template>
 
     <main>
-        <AppMovies></AppMovies>
+        <AppCards></AppCards>
     </main>
 
 </template>

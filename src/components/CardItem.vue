@@ -2,10 +2,10 @@
 
 export default {
 
-    name: 'MovieItem',
+    name: 'CardItem',
 
     props: {
-        movie: Object,
+        card: Object,
     },
 
   data() {
@@ -15,7 +15,7 @@ export default {
 
   methods: {
     getFlag() {
-        let flag = this.movie.original_language;
+        let flag = this.card.original_language;
         if (flag == 'en' || flag == 'uk') {
             flag = 'gb';
         }
@@ -37,7 +37,7 @@ export default {
 
     roundVote() {
 
-        let roundedVote = this.movie.vote_average / 2;
+        let roundedVote = this.card.vote_average / 2;
 
         if(roundedVote % 1 <= 0.4) {
 
@@ -59,24 +59,24 @@ export default {
 
     <div class="card">
 
-        <img :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path">
+        <img :src="'https://image.tmdb.org/t/p/w342' + card.poster_path">
 
-        <h2 v-if="movie.title">
-            {{ movie.title }}
+        <h2 v-if="card.title">
+            {{ card.title }}
         </h2>
 
         <h2 v-else>
-            {{movie.name}}
+            {{card.name}}
         </h2>
 
         <div class="info">
 
-            <h3 v-if="movie.original_title">
-                Titolo originale : {{ movie.original_title }}
+            <h3 v-if="card.original_title">
+                Titolo originale : {{ card.original_title }}
             </h3>
 
             <h3 v-else>
-                Titolo originale : {{ movie.original_name }}
+                Titolo originale : {{ card.original_name }}
             </h3>
 
             <h3>

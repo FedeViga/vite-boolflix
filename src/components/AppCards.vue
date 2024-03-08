@@ -1,14 +1,14 @@
 <script>
 
 import {store} from '../js/store.js';
-import MovieItem from './MovieItem.vue';
+import CardItem from './CardItem.vue';
 
 export default {
 
-    name: 'AppMovies',
+    name: 'AppCards',
 
     components: {
-        MovieItem,
+        CardItem,
     },
 
   data() {
@@ -30,16 +30,16 @@ export default {
 
             <div class="cards-list">
 
-                <MovieItem 
+                <CardItem 
                     v-for="currentMovie in store.moviesList"
-                    :movie ="currentMovie"
-                ></MovieItem>
+                    :card ="currentMovie"
+                ></CardItem>
 
             </div>
         </div>
     </section>
 
-    <section v-if="store.moviesList.length > 0">
+    <section v-if="store.seriesList.length > 0">
         <div class="container">
 
             <h2>
@@ -48,10 +48,10 @@ export default {
 
             <div class="cards-list">
 
-                <MovieItem 
+                <CardItem 
                     v-for="currentSerie in store.seriesList"
-                    :movie ="currentSerie"
-                ></MovieItem>
+                    :card ="currentSerie"
+                ></CardItem>
 
             </div>
         </div>

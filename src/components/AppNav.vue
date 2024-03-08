@@ -22,7 +22,7 @@ export default {
       <img src="https://fontmeme.com/permalink/240306/a1497229f7b7e248527b4619e155203f.png" alt="boolflix logo">
   
       <div class="search">
-        <input type="search" placeholder="Search Movie" v-model="store.title">
+        <input type="search" placeholder="Search Movie or Serie" v-model="store.title">
         <button @click="$emit('search')">Search</button>
       </div>
     </div>
